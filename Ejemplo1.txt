@@ -1,7 +1,180 @@
-Linea1
-Linea2
-Linea3
-Linea4 correccion Nº28
-Funcionalidad1
-Funcionalidad2
-Funcionalidad3
+Public Class JuanVelardi1
+    Dim Operador As Integer
+    Dim Numero As Double = 0
+    Dim Resultado As Double = 0
+    Dim Visor As String = "0"
+    Dim Resta As Double = 0
+    Private Sub Pantalla_Click(sender As Object, e As EventArgs) Handles Pantalla.Click
+        Pantalla.Text = Visor
+    End Sub
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+    End Sub
+
+    Private Sub JuanVelardi1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim R As MsgBoxResult
+        R = MsgBox("¿Está seguro que desea salir?", MsgBoxStyle.YesNo, "¡ATENCIÓN!")
+        If R = MsgBoxResult.No Then
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub JuanVelardi1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Btn1_Click(sender As Object, e As EventArgs) Handles Btn1.Click
+        If Visor = 0 Then
+            Visor = "1"
+        Else
+            Visor = Visor + "1"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub Btn2_Click(sender As Object, e As EventArgs) Handles Btn2.Click
+        If Visor = 0 Then
+            Visor = 2
+        Else
+            Visor = Visor + "2"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub Btn3_Click(sender As Object, e As EventArgs) Handles Btn3.Click
+        If Visor = 0 Then
+            Visor = 3
+        Else
+            Visor = Visor + "3"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub Btn4_Click(sender As Object, e As EventArgs) Handles Btn4.Click
+        If Visor = 0 Then
+            Visor = 4
+        Else
+            Visor = Visor + "4"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub Btn5_Click(sender As Object, e As EventArgs) Handles Btn5.Click
+        If Visor = 0 Then
+            Visor = 5
+        Else
+            Visor = Visor + "5"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub Btn6_Click(sender As Object, e As EventArgs) Handles Btn6.Click
+        If Visor = 0 Then
+            Visor = 6
+        Else
+            Visor = Visor + "6"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
+        If Visor = 0 Then
+            Visor = 7
+        Else
+            Visor = Visor + "7"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub Btn8_Click(sender As Object, e As EventArgs) Handles Btn8.Click
+        If Visor = 0 Then
+            Visor = 8
+        Else
+            Visor = Visor + "8"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub Btn9_Click(sender As Object, e As EventArgs) Handles Btn9.Click
+        If Visor = 0 Then
+            Visor = 9
+        Else
+            Visor = Visor + "9"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub Btn0_Click(sender As Object, e As EventArgs) Handles Btn0.Click
+        If Visor = 0 Then
+            Visor = 0
+        Else
+            Visor = Visor + "0"
+        End If
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub BtnMas_Click(sender As Object, e As EventArgs) Handles BtnMas.Click
+        Operador = 1
+        Resultado = Resultado + Double.Parse(Visor)
+        Visor = "0"
+        Pantalla.Text = "+"
+    End Sub
+
+    Private Sub BtnMenos_Click(sender As Object, e As EventArgs) Handles BtnMenos.Click
+        Operador = 2
+        If Resta = 0 Then
+            Resultado = Double.Parse(Visor)
+            Resta = 1
+        Else
+            Resultado = Resultado - Double.Parse(Visor)
+        End If
+        Visor = 0
+        Pantalla.Text = "-"
+    End Sub
+
+    Private Sub BtnPor_Click(sender As Object, e As EventArgs) Handles BtnPor.Click
+        Operador = 3
+        Resultado = Double.Parse(Visor)
+        Visor = 0
+        Pantalla.Text = "*"
+    End Sub
+
+    Private Sub BtnDividir_Click(sender As Object, e As EventArgs) Handles BtnDividir.Click
+        Operador = 4
+        Resultado = Double.Parse(Visor)
+        Visor = 0
+        Pantalla.Text = "/"
+    End Sub
+
+    Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
+        Numero = Double.Parse(Visor)
+        Select Case Operador
+            Case 1
+                Resultado = Resultado + Numero
+            Case 2
+                Resultado = Resultado - Numero
+            Case 3
+                Resultado = Resultado * Numero
+            Case 4
+                Resultado = Resultado / Numero
+        End Select
+        Visor = Resultado.ToString
+        Resultado = 0
+        Resta = 0
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles BtnBorrar.Click
+        Resultado = 0
+        Visor = "0"
+        Operador = 0
+        Resta = 0
+        Numero = 0
+        Pantalla.Text = Visor
+    End Sub
+
+    Private Sub BtnPunto_Click(sender As Object, e As EventArgs) Handles BtnPunto.Click
+        Visor = Visor + "."
+        Pantalla.Text = Visor
+    End Sub
+End Class
